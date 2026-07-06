@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed07e7b7420bac84ba96dc00f79ad407, type: 3}
+  m_Name: Skill Element Config
+  m_EditorClassIdentifier: Assembly-CSharp::MyProject.SkillElementConfig
+  skillElementsList:
+  - elementType: 1
+    color: {r: 1, g: 0, b: 0, a: 1}
+    mainViewSprite: {fileID: 21300000, guid: 0aeacf74a7ef03241b0fdb4a478266e2, type: 3}
+    starViewSprite: {fileID: -5784257126758159726, guid: 529573e40a6abe042922db79bcf12f4c, type: 3}
+    damageList:
+    - rareType: 0
+      damage: 30
+    - rareType: 1
+      damage: 40
+    - rareType: 2
+      damage: 50
+    - rareType: 3
+      damage: 60
+  - elementType: 0
+    color: {r: 0, g: 0, b: 1, a: 1}
+    mainViewSprite: {fileID: 21300000, guid: c5fb34c5a5792e143bb84c616f198cfa, type: 3}
+    starViewSprite: {fileID: -7821952024421959678, guid: 529573e40a6abe042922db79bcf12f4c, type: 3}
+    damageList:
+    - rareType: 0
+      damage: 30
+    - rareType: 1
+      damage: 40
+    - rareType: 2
+      damage: 50
+    - rareType: 3
+      damage: 60
+  - elementType: 2
+    color: {r: 1, g: 1, b: 0, a: 1}
+    mainViewSprite: {fileID: 21300000, guid: c7822e7a52fabd547a567f75aa10fff7, type: 3}
+    starViewSprite: {fileID: -1389939050, guid: b56a87851498efc49aee4549d9a67268, type: 3}
+    damageList:
+    - rareType: 0
+      damage: 30
+    - rareType: 1
+      damage: 40
+    - rareType: 2
+      damage: 50
+    - rareType: 3
+      damage: 60
+  - elementType: 3
+    color: {r: 0, g: 1, b: 0, a: 1}
+    mainViewSprite: {fileID: 21300000, guid: cb49c397d0af1ea418a64de90156d7d6, type: 3}
+    starViewSprite: {fileID: -1140974811, guid: b56a87851498efc49aee4549d9a67268, type: 3}
+    damageList:
+    - rareType: 0
+      damage: 30
+    - rareType: 1
+      damage: 40
+    - rareType: 2
+      damage: 50
+    - rareType: 3
+      damage: 60
+  multiplyFactor: 0
+  firstDamage: 50
+  wantSetDefaultValue: 0

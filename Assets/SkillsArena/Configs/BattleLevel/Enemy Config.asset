@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4a5d88a5973124cb4b577bdb76f499, type: 3}
+  m_Name: Enemy Config
+  m_EditorClassIdentifier: Assembly-CSharp::MyProject.EnemyConfig
+  defaultHealth: 100
+  ratesList:
+  - skillRareType: 0
+    startWeight: 30
+    maxWeight: 30
+    changeValuePerLevel: 0
+  - skillRareType: 1
+    startWeight: 10
+    maxWeight: 30
+    changeValuePerLevel: 5
+  - skillRareType: 2
+    startWeight: 5
+    maxWeight: 30
+    changeValuePerLevel: 3
+  - skillRareType: 3
+    startWeight: 0
+    maxWeight: 30
+    changeValuePerLevel: 2

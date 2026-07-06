@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c450931aad6a6544594cea570b03435e, type: 3}
+  m_Name: Sound Config
+  m_EditorClassIdentifier: Assembly-CSharp::MySandTetrisGame.SoundConfig
+  sounds:
+  - type: 0
+    sound: {fileID: 8300000, guid: 3d5f8806d36781444aee74149d0dbb60, type: 3}
+    volume: 0.15
+  - type: 1
+    sound: {fileID: 8300000, guid: 8a9e4ac9d7fd7a74f862cbb08abe427c, type: 3}
+    volume: 0.2
+  - type: 3
+    sound: {fileID: 8300000, guid: ce74a09ffc450f44f9036cc3e78ccce9, type: 3}
+    volume: 0.2
+  - type: 2
+    sound: {fileID: 8300000, guid: 4103194642d01374a8e4d35418414bdd, type: 3}
+    volume: 0.1
+  - type: 4
+    sound: {fileID: 8300000, guid: 4103194642d01374a8e4d35418414bdd, type: 3}
+    volume: 0.2
+  - type: 5
+    sound: {fileID: 8300000, guid: 12adcbdf99703184789ecca4ed01f248, type: 3}
+    volume: 0.2
+  - type: 6
+    sound: {fileID: 8300000, guid: 9328204e66a0cda4db243ba85d02531d, type: 3}
+    volume: 0.2
+  - type: 7
+    sound: {fileID: 8300000, guid: 324c1067bb95d004b838d8f541b830b2, type: 3}
+    volume: 0.2
+  - type: 8
+    sound: {fileID: 8300000, guid: b6f0b1b5580efec45b080438890f2534, type: 3}
+    volume: 0.4

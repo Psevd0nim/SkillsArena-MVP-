@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df76edf574176f94ca9cbf615e0021b8, type: 3}
+  m_Name: Skill Rare Config
+  m_EditorClassIdentifier: Assembly-CSharp::MyProject.SkillRareConfig
+  skillRareDataList:
+  - skillRareType: 0
+    color: {r: 0.1764706, g: 0.90196085, b: 0, a: 1}
+    sprite: {fileID: -1880340344, guid: cdf021f1f002b5e4986acbd94b7a9d7e, type: 3}
+  - skillRareType: 1
+    color: {r: 0.007843138, g: 0.5568628, b: 1, a: 1}
+    sprite: {fileID: 754722867, guid: cdf021f1f002b5e4986acbd94b7a9d7e, type: 3}
+  - skillRareType: 2
+    color: {r: 0.8705883, g: 0, b: 0.97647065, a: 1}
+    sprite: {fileID: 539289251, guid: cdf021f1f002b5e4986acbd94b7a9d7e, type: 3}
+  - skillRareType: 3
+    color: {r: 0.9960785, g: 0.5137255, b: 0, a: 1}
+    sprite: {fileID: 654821175, guid: cdf021f1f002b5e4986acbd94b7a9d7e, type: 3}

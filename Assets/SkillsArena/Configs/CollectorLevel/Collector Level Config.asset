@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c6626b8b4a2004fa27faa2c9d449a8, type: 3}
+  m_Name: Collector Level Config
+  m_EditorClassIdentifier: Assembly-CSharp::MyProject.SkillsCollectingLevelConfig
+  skillsInCollectorLevel:
+  - skillRareType: 0
+    count: 4
+    timeLive: 999999
+    encodeDataList:
+    - encodedType: 1
+      encodedLength: 5
+    - encodedType: 2
+      encodedLength: 4
+  - skillRareType: 1
+    count: 3
+    timeLive: 9
+    encodeDataList:
+    - encodedType: 1
+      encodedLength: 5
+    - encodedType: 2
+      encodedLength: 4
+  - skillRareType: 2
+    count: 2
+    timeLive: 7
+    encodeDataList:
+    - encodedType: 1
+      encodedLength: 5
+    - encodedType: 2
+      encodedLength: 4
+  - skillRareType: 3
+    count: 1
+    timeLive: 5
+    encodeDataList:
+    - encodedType: 1
+      encodedLength: 5
+    - encodedType: 2
+      encodedLength: 4

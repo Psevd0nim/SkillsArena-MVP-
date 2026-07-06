@@ -1,0 +1,65 @@
+Third-Party Notices
+
+This package contains third-party software components governed by the license(s) indicated below.
+
+------------------------------------------------------------
+
+Component Name: 796080__colinleblancsound__levelbgm
+License Type: Creative Commons Attribution 4.0 (CC BY 4.0)
+Source: https://freesound.org/s/796080/
+
+------------------------------------------------------------
+
+Component Name: 54405__korgms2000b__button-click
+License Type: Creative Commons 0 (CC0)
+Source: https://freesound.org/s/54405/
+
+------------------------------------------------------------
+
+Component Name: 118513__thefsoundman__punch_02
+License Type: Creative Commons 0 (CC0)
+Source: https://freesound.org/s/118513/
+
+------------------------------------------------------------
+
+Component Name: 320521-deleted-user-2906614-unsheathed-blade(CUT)
+License Type: Creative Commons 0 (CC0)
+Source: https://freesound.org/s/320521/
+
+------------------------------------------------------------
+
+Component Name: 163452__lemudcrab__money-pickup-2
+License Type: Creative Commons 0 (CC0)
+Source: https://freesound.org/s/163452/
+
+------------------------------------------------------------
+
+Component Name: 856516__coghezzi__game-over-orchestral-stinger-cartoon-defeat
+License Type: Creative Commons Attribution 4.0 (CC BY 4.0)
+Source: https://freesound.org/s/856516/
+
+------------------------------------------------------------
+
+Component Name: 743260__qubodup__small-metal-or-stone-item
+License Type: Creative Commons 0 (CC0)
+Source: https://freesound.org/s/743260/
+
+------------------------------------------------------------
+
+Component Name: beltHandle1
+License Type: Creative Commons 0 (CC0)
+Source: https://kenney.nl/assets/rpg-audio
+
+------------------------------------------------------------
+
+Component Name: bookFlip2
+License Type: Creative Commons 0 (CC0)
+Source: https://kenney.nl/assets/rpg-audio
+
+------------------------------------------------------------
+
+Component Name: FREE_Samurai 2D Pixel Art v1.2
+License Type: Custom License
+Source: https://xzany.itch.io/samurai-2d-pixel-art
+
+------------------------------------------------------------
