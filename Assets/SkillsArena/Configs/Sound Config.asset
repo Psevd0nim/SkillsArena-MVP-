@@ -38,5 +38,5 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: 324c1067bb95d004b838d8f541b830b2, type: 3}
     volume: 0.2
   - type: 8
-    sound: {fileID: 8300000, guid: b6f0b1b5580efec45b080438890f2534, type: 3}
+    sound: {fileID: 8300000, guid: 0fa5c5de006cb0441a0ab43707d1b25a, type: 3}
     volume: 0.4
