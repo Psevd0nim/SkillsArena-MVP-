@@ -108,7 +108,6 @@ namespace SkillsArena
         }
     }
 
-    ////I don't think it's the best solution, I added this at the end. State Machine is probably better.
     public enum CollectorLevelStateType
     {
         None, Start, GameLoop, End

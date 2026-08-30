@@ -30,3 +30,14 @@ MonoBehaviour:
     startWeight: 0
     maxWeight: 30
     changeValuePerLevel: 2
+  colorAndTypeList:
+  - colorType: 0
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - colorType: 1
+    color: {r: 0, g: 1, b: 0, a: 1}
+  - colorType: 2
+    color: {r: 0, g: 0, b: 1, a: 1}
+  - colorType: 3
+    color: {r: 1, g: 1, b: 0, a: 1}
+  - colorType: 4
+    color: {r: 0.5, g: 0, b: 1, a: 1}

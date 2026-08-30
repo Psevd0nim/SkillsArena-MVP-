@@ -46,9 +46,9 @@ Source: https://kenney.nl/assets/rpg-audio
 
 ------------------------------------------------------------
 
-Component Name: FREE_Samurai 2D Pixel Art v1.2
-License Type: Custom License
-Source: https://xzany.itch.io/samurai-2d-pixel-art
+Component Name: Martial Hero
+License Type: Creative Commons 0 (CC0)
+Source: https://luizmelo.itch.io/martial-hero
 
 ------------------------------------------------------------
 

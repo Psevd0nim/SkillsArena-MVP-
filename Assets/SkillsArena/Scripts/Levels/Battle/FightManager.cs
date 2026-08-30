@@ -42,6 +42,15 @@ namespace SkillsArena
                 OnOutOfSkills?.Invoke();
                 return;
             }
+            if (!_enemy.IsReady)
+            {
+                _enemy.OnReady += PrepareToBattle;
+                return;
+            }
+            else
+            {
+                _enemy.OnReady -= PrepareToBattle;
+            }
             _skillsManager.TrySetSkillsToEnemyCombination();
         }
 
@@ -56,36 +65,30 @@ namespace SkillsArena
             _battleLevel_UI_Manager.ShowOrHideStartBattleButton(false);
             if (_enemyHub.Showing)
                 _enemyHub.SmoothShowEnemyHub(false);
-            StartCoroutine(BattleCoroutine());
+            Battle();
             AudioManager.Instance.PlaySomeSound(SoundType.Fight);
             OnStartBattle?.Invoke();
         }
-
-        private IEnumerator BattleCoroutine()
+        
+        private void Battle()
         {
             _player.StartAnimation(AnimationType.Attack);
             _enemy.StartAnimation(AnimationType.Attack);
 
-            yield return new WaitForSeconds(1f);
+            bool playerHasMoreDamage = _player.SkillCombination.TotalDamage > _enemy.SKillCombination.TotalDamage;
+            bool enemyHasMoreDamage = _player.SkillCombination.TotalDamage < _enemy.SKillCombination.TotalDamage;
 
-            if (_player.SkillCombination.TotalDamage > _enemy.SKillCombination.TotalDamage)
+            if (playerHasMoreDamage)
             {
                 _enemy.TakeDamage(_player.SkillCombination.TotalDamage - _enemy.SKillCombination.TotalDamage);
-                _player.StartAnimation(AnimationType.Idle);
             }
-            else if (_player.SkillCombination.TotalDamage < _enemy.SKillCombination.TotalDamage)
+            else if(enemyHasMoreDamage)
             {
                 _player.TakeDamage(_enemy.SKillCombination.TotalDamage - _player.SkillCombination.TotalDamage);
-                _enemy.StartAnimation(AnimationType.Idle);
-            }
-            else
-            {
-                _player.StartAnimation(AnimationType.Idle);
-                _enemy.StartAnimation(AnimationType.Idle);
             }
 
             _skillsManager.Clear();
-            _levelData.NextRound();
+            _levelData.ChangeRoundNum();
             ServiceLocator.Instance.GetService<SaveAndLoadData>().SaveGameData();
             PrepareToBattle();
         }

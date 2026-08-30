@@ -15,7 +15,7 @@ namespace SkillsArena
             UpdateRoundText();
         }
 
-        public void NextRound()
+        public void ChangeRoundNum()
         {
             CurrentRound++;
             if (CurrentRound > 3)

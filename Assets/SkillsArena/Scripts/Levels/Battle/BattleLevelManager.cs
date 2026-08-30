@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SkillsArena
 {
@@ -25,7 +27,7 @@ namespace SkillsArena
         private bool _gameOver;
         private List<IPausable> _pauseables = new List<IPausable>();
 
-        private LevelData levelData = new LevelData();
+        private LevelData _levelData = new LevelData();
 
         public override void Init()
         {
@@ -45,16 +47,16 @@ namespace SkillsArena
             _enemyHub.Enemy.OnDeath += AfterEnemyDeath;
             _enemyHub.EnemyInit(_enemyConfig, _gameData);
 
-            levelData.Init(_battleLevelUIManager, _gameData);
+            _levelData.Init(_battleLevelUIManager, _gameData);
 
-            _fightManager.Init(_battleLevelUIManager, _player, _enemyHub, levelData);
+            _fightManager.Init(_battleLevelUIManager, _player, _enemyHub, _levelData);
             _fightManager.OnOutOfSkills += OutOfSkills;
             _fightManager.OnPreparedToBattle += AfterPreparedToBattle;
             _fightManager.OnStartBattle += AfterStartBattle;
             
             _handSkillsBattleManager.Init();
 
-            _skillsManager.Init(_dependencySkillsManager, _player, _enemyHub.Enemy, levelData);
+            _skillsManager.Init(_dependencySkillsManager, _player, _enemyHub.Enemy, _levelData);
             
             _pauseables.Add(_skillsManager);
 
@@ -102,6 +104,11 @@ namespace SkillsArena
         private void AfterEnemyDeath()
         {
             _gameData.IncreaseEnemiesDefeated();
+            _enemyHub.Enemy.OnDeathAnimEnd += AfterEnemyDeathAnim;
+        }
+
+        private void AfterEnemyDeathAnim()
+        {
             _enemyHub.AfterEnemyDeath(_enemyConfig, _gameData);
             _saveAndLoadDataService.SaveGameData();
         }
@@ -145,7 +152,8 @@ namespace SkillsArena
         private void InitGameData()
         {
             EnemySkillsRateData enemySkillsRateData = new EnemySkillsRateData(_enemyConfig.ratesList);
-            EnemyData enemyData = new EnemyData(_enemyConfig.defaultHealth, new SkillCombinationData(), enemySkillsRateData);
+            ColorType colorType = (ColorType)Random.Range(0, Enum.GetNames(typeof(ColorType)).Length);
+            EnemyData enemyData = new EnemyData(_enemyConfig.defaultHealth, new SkillCombinationData(), enemySkillsRateData, colorType);
             PlayerData playerData = new PlayerData(_playerConfig.defaultHealth);
             _gameData.Init(enemyData, playerData, _dependencySkillsManager.GetDependencySkillsDataRandom());
             _saveAndLoadDataService.SaveGameData();
@@ -162,10 +170,8 @@ namespace SkillsArena
 
         private void GameOver()
         {
-            AudioManager.Instance.PlaySomeSound(SoundType.GameOver);
             AudioManager.Instance.SetBackgroundStatus(false);
             BattleLevelStateType = BattleLevelStateType.GameOver;
-            _battleLevelUIManager.ShowGameOverPanel();
             _gameOver = true;
             foreach (var pauseable in _pauseables)
             {
@@ -174,6 +180,16 @@ namespace SkillsArena
 
             _gameData.Clear();
             _saveAndLoadDataService.SaveGameData();
+
+            _player.OnDeathAnimEnd += FinalGameOver;
+        }
+
+        private void FinalGameOver()
+        {
+            AudioManager.Instance.PlaySomeSound(SoundType.GameOver);
+            _battleLevelUIManager.ShowGameOverPanel();
+
+            _player.OnDeathAnimEnd -= FinalGameOver;
         }
 
         private void AfterPreparedToBattle(bool prepared)
@@ -187,7 +203,6 @@ namespace SkillsArena
         }
     }
 
-    ////I don't think it's the best solution, I added this at the end. State Machine is probably better.
     public enum BattleLevelStateType
     {
         None, NeedToPrepare, Prepared, Battle, OutOfSkills, GameOver

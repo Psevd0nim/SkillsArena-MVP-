@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SkillsArena
 {
@@ -24,7 +26,8 @@ namespace SkillsArena
         public void AfterEnemyDeath(EnemyConfig enemyConfig, GameData gameData)
         {
             _enemy.IncreaseSkillsRateLevel();
-            EnemyData enemyData = new EnemyData(enemyConfig.defaultHealth, new SkillCombinationData(), gameData.CurrentEnemyData.enemySkillsRateData);
+            ColorType colorType = (ColorType)Random.Range(0, Enum.GetNames(typeof(ColorType)).Length);
+            EnemyData enemyData = new EnemyData(enemyConfig.defaultHealth, new SkillCombinationData(), gameData.CurrentEnemyData.enemySkillsRateData, colorType);
             gameData.SetEnemyData(enemyData);
             EnemyInit(enemyConfig, gameData);
             SmoothShowEnemyHub();

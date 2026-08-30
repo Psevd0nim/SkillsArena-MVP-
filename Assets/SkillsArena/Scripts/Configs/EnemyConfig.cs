@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,12 @@ namespace SkillsArena
     {
         public int defaultHealth;
         public List<RareRateDefaultData> ratesList;
+        public List<ColorAndType> colorAndTypeList;
+
+        public Color GetColorByType(ColorType colorType)
+        {
+            return colorAndTypeList.Find(x => x.colorType == colorType).color;
+        }
 
         private void OnValidate()
         {
@@ -17,5 +24,17 @@ namespace SkillsArena
                     value.maxWeight = value.startWeight;
             }
         }
+    }
+
+    [Serializable]
+    public class ColorAndType
+    {
+        public ColorType colorType;
+        public Color color;
+    }
+
+    public enum ColorType
+    {
+        Red, Green, Blue, Yellow, Purple
     }
 }

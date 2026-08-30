@@ -10,12 +10,16 @@ namespace SkillsArena
 
         [SerializeField] private SkillCombination _skillCombination;
 
+        private ColorType _colorType;
+
         public void Init(EnemyConfig enemyConfig, EnemyData enemyData)
         {
             SkillCombinationData = enemyData.skillCombinationData;
             EnemySkillsRateData = enemyData.enemySkillsRateData;
+            _colorType = enemyData.colorType;
+            _view.color = enemyConfig.GetColorByType(_colorType);
+            _entityView_UI.SetColorForView(_view.color);
             Init(enemyConfig.defaultHealth, enemyData.currentHealth);
-            StartAnimation(AnimationType.Idle);
         }
 
         public void UpdateSkillCombinationData(SkillCombinationData skillCombinationData)
@@ -37,7 +41,7 @@ namespace SkillsArena
 
         public override void Save()
         {
-            EnemyData enemyData = new EnemyData(CurrentHealth, SkillCombinationData, EnemySkillsRateData);
+            EnemyData enemyData = new EnemyData(CurrentHealth, SkillCombinationData, EnemySkillsRateData, _colorType);
             ServiceLocator.Instance.GetService<GameData>().SetEnemyData(enemyData);
         }
     }

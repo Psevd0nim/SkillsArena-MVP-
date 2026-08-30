@@ -5,14 +5,17 @@ namespace SkillsArena
 {
     public abstract class Entity : MonoBehaviour
     {
-        public event Action OnDeath; 
+        public event Action OnDeath;
+        public event Action OnDeathAnimEnd;
+        public event Action OnReady;
 
         [SerializeField] private Animator _playerAnimator;
-        [SerializeField] private HealthBar_UI _healthBarUI;
-        [SerializeField] private SpriteRenderer _view;
+        [SerializeField] private protected EntityView_UI _entityView_UI;
+        [SerializeField] private protected SpriteRenderer _view;
 
         public int MaxHealth { get; private set; }
         public int CurrentHealth { get; private set; }
+        public bool IsReady { get; private set; }
 
         public void Init(int maxHealth, int currentHealth)
         {
@@ -20,6 +23,10 @@ namespace SkillsArena
             CurrentHealth = currentHealth;
             UpdateHealthView();
             _view.enabled = true;
+            _playerAnimator.ResetControllerState();
+            _playerAnimator.SetBool("Death", false);
+            IsReady = true;
+            OnReady?.Invoke();
         }
 
         public abstract void Save();
@@ -31,9 +38,6 @@ namespace SkillsArena
                 case AnimationType.Attack:
                     _playerAnimator.SetTrigger("Attack");
                     break;
-                case AnimationType.Idle:
-                    _playerAnimator.SetTrigger("Idle");
-                    break;
                 case AnimationType.Damage:
                     _playerAnimator.SetTrigger("Damage");
                     break;
@@ -42,12 +46,12 @@ namespace SkillsArena
 
         public void UpdateHealthView()
         {
-            _healthBarUI.UpdateHealthView(CurrentHealth, MaxHealth);
+            _entityView_UI.UpdateHealthView(CurrentHealth, MaxHealth);
         }
 
         public void TakeDamage(int damage)
         {
-            AudioManager.Instance.PlaySomeSound(SoundType.TakeDamage);
+            StartAnimation(AnimationType.Damage);
             CurrentHealth -= damage;
             Save();
             if (CurrentHealth <= 0)
@@ -55,17 +59,25 @@ namespace SkillsArena
                 CurrentHealth = 0;
                 DeathRattle();
             }
-            else
-            {
-                StartAnimation(AnimationType.Damage);
-            }
-            UpdateHealthView();
+            //UpdateHealthView();
+        }
+
+        public void TakeDamageSound()
+        {
+            AudioManager.Instance.PlaySomeSound(SoundType.TakeDamage);
         }
 
         private protected virtual void DeathRattle()
         {
-            _view.enabled = false;
+            IsReady = false;
+            _playerAnimator.SetBool("Death", true);
             OnDeath?.Invoke();
+        }
+
+        private protected void DeathAnimEnd()
+        {
+            _view.enabled = false;
+            OnDeathAnimEnd?.Invoke();
         }
     }
 }
