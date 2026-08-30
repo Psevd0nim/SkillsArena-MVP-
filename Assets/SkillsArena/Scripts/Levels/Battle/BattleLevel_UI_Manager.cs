@@ -139,9 +139,14 @@ namespace SkillsArena
             _audioManager.PlaySomeSound(SoundType.ClickButton);
         }
 
-        public void ShowGameOverPanel()
+        public void UpdateGameOverPanelInfo()
         {
             _gameOverStatsText.text = $"Enemies Defeated: {_gameData.CurrentEnemiesDefeated}";
+        }
+
+        public void ShowGameOverPanel()
+        {
+            //_gameOverStatsText.text = $"Enemies Defeated: {_gameData.CurrentEnemiesDefeated}";
             _gameOverPanel.SetActive(true);
         }
 

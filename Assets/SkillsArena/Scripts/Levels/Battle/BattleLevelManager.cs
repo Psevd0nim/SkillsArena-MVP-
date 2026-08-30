@@ -178,9 +178,9 @@ namespace SkillsArena
                 pauseable.Pause(true);
             }
 
+            _battleLevelUIManager.UpdateGameOverPanelInfo();
             _gameData.Clear();
             _saveAndLoadDataService.SaveGameData();
-
             _player.OnDeathAnimEnd += FinalGameOver;
         }
 
