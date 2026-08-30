@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MySandTetrisGame.SoundConfig
   sounds:
   - type: 0
-    sound: {fileID: 8300000, guid: 3d5f8806d36781444aee74149d0dbb60, type: 3}
+    sound: {fileID: 8300000, guid: 07755cb670e8cbd48b4c0cc54087ee34, type: 3}
     volume: 0.15
   - type: 1
     sound: {fileID: 8300000, guid: 8a9e4ac9d7fd7a74f862cbb08abe427c, type: 3}
